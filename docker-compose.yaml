@@ -4,7 +4,7 @@ services:
     ports:
       - "4200:4200"
     container_name: client
-    depends_on: [webapi, api]
+    depends_on: [api, webapi]
 
   webapi:
     restart: always
@@ -12,14 +12,14 @@ services:
     ports:
       - "9000:9000"
     container_name: webapi
-    depends_on: [nginx, emartdb]
+    depends_on: [emartdb]
 
   api:
     build: ./nodeapi
     ports:
       - "5000:5000"
     container_name: api
-    depends_on: [nginx, emongo]
+    depends_on: [emongo]
 
   nginx:
     build: nginx:latest
