@@ -22,7 +22,7 @@ services:
     depends_on: [emongo]
 
   nginx:
-    build: nginx:latest
+    image: nginx:latest
     restart: always
     ports:
       - "80:80"
