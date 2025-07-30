@@ -15,6 +15,7 @@ services:
     depends_on: [emartdb]
 
   api:
+    restart: always
     build: ./nodeapi
     ports:
       - "5000:5000"
