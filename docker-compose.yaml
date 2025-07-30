@@ -22,7 +22,6 @@ services:
     container_name: api
     #depends_on: [emongo]
     depends_on:
-      - nginx
       - emongo
 
   nginx:
@@ -31,9 +30,9 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - "./nginx/default.conf:/etc/nginx/conf.d/default.conf"
     container_name: nginx
-    #depends_on: [client, api, webapi]
+    depends_on: [api]
     command: ['nginx-debug', '-g', 'daemon off;']
 
   emartdb:
