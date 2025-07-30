@@ -1,7 +1,7 @@
 FROM openjdk:8 AS base
 WORKDIR /usr/src/app 
 RUN apt update && apt install maven
-COPY ./javaapi .
+COPY javaapi ./javaapi
 RUN mvn install -DskipTests
 
 FROM openjdk:8
